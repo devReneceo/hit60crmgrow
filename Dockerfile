@@ -26,17 +26,12 @@ COPY src/ /var/www/html/
 # RUN chmod 777 /var/www/html/application/.env
 RUN a2enmod rewrite
 RUN docker-php-ext-install bcmath
-
 RUN apt-get update -y && apt-get install -y sendmail libpng-dev
-
 RUN apt-get update && \
     apt-get install -y \
-    zlib1g-dev 
-
+    zlib1g-dev
 RUN docker-php-ext-install mbstring
-
 RUN docker-php-ext-install zip
-
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install mysqli
 ENV SETUP_STATUS=COMPLETED
@@ -53,3 +48,4 @@ ENV APP_ENV=production
 ENV APP_KEY=base64:aNBBQ58FMwnQzbg8Uk9Z/Tt1nDi1d7LisxsyUeViHw0=
 ENV APP_INSTALLED_VERSION=1.08
 ENV ENFORCE_SSL=false
+ENV PORT = 80

@@ -1,5 +1,5 @@
 FROM php:8.0-apache
-
+USER root
 RUN docker-php-ext-install -j "$(nproc)" opcache
 RUN set -ex; \
     { \
@@ -22,27 +22,4 @@ COPY src/ /var/www/html/
 RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 RUN a2enmod rewrite
-RUN chmod 777 /var/www/html/updates
-RUN chmod 777 /var/www/html/storage
-RUN chmod 777 /var/www/html/storage/avatars
-RUN chmod 777 /var/www/html/storage/logos
-RUN chmod 777 /var/www/html/storage/logos/clients
-RUN chmod 777 /var/www/html/storage/logos/app
-RUN chmod 777 /var/www/html/storage/files
-RUN chmod 777 /var/www/html/storage/temp
-RUN chmod 777 /var/www/html/application/storage/app
-RUN chmod 777 /var/www/html/application/storage/app/public
-RUN chmod 777 /var/www/html/application/storage/cache
-RUN chmod 777 /var/www/html/application/storage/cache/data
-RUN chmod 777 /var/www/html/application/storage/debugbar
-RUN chmod 777 /var/www/html/application/storage/framework
-RUN chmod 777 /var/www/html/application/storage/framework/cache
-RUN chmod 777 /var/www/html/application/storage/framework/cache/data
-RUN chmod 777 /var/www/html/application/storage/framework/sessions
-RUN chmod 777 /var/www/html/application/storage/framework/testing
-RUN chmod 777 /var/www/html/application/storage/framework/views
-RUN chmod 777 /var/www/html/application/storage/logs
-RUN chmod 777 /var/www/html/application/bootstrap/cache
-RUN chmod 777 /var/www/html/application/storage/app/purifier
-RUN chmod 777 /var/www/html/application/storage/app/purifier/HTML
-RUN chmod 777 /var/www/html/application/.env
+

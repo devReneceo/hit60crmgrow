@@ -33,12 +33,12 @@ RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/a
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
 RUN a2enmod rewrite
-RUN docker-php-ext-install bcmath
-RUN apt-get update -y && apt-get install -y sendmail libpng-dev
-RUN apt-get update && \
-    apt-get install -y \
-    zlib1g-dev
+# RUN docker-php-ext-install bcmath
+# RUN apt-get update -y && apt-get install -y sendmail libpng-dev
+# RUN apt-get update && \
+#     apt-get install -y \
+#     zlib1g-dev
 # RUN docker-php-ext-install mbstring
-RUN docker-php-ext-install zip
-RUN docker-php-ext-install gd
-RUN docker-php-ext-install mysqli
+# RUN docker-php-ext-install zip
+# RUN docker-php-ext-install gd
+# RUN docker-php-ext-install mysqli

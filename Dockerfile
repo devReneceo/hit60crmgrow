@@ -20,7 +20,7 @@ RUN set -ex; \
 
 COPY src/ /var/www/html/
 RUN ls -al /var/www/html
-RUN chmod 777 /var/www/html/application/updates
+RUN chmod 777 /var/www/html/updates
 RUN chmod 777 /var/www/html/storage
 RUN chmod 777 /var/www/html/storage/avatars
 RUN chmod 777 /var/www/html/storage/logos

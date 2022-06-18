@@ -1,5 +1,20 @@
 <?php
-
+echo '<pre>';
+print_r([
+    'driver' => 'mysql',
+    'host' => env('DB_HOST', '127.0.0.1'),
+    'port' => env('DB_PORT', '3306'),
+    'database' => env('DB_DATABASE', 'forge'),
+    'username' => env('DB_USERNAME', 'forge'),
+    'password' => env('DB_PASSWORD', ''),
+    'unix_socket' => env('DB_SOCKET', ''),
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'prefix' => '',
+    'strict' => false,
+    'engine' => null,
+]);
+die();
 /*
 |--------------------------------------------------------------------------
 | NEXTLOOP
@@ -22,9 +37,7 @@ define('BASE_DIR', realpath(__DIR__ . '/../../'));
 | the IoC container for the system binding all of the various parts.
 |
 */
-$app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
-);
+$app = new Illuminate\Foundation\Application(realpath(__DIR__ . '/../'));
 
 /*
 |--------------------------------------------------------------------------

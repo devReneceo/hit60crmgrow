@@ -47,4 +47,4 @@ RUN chmod 777 /var/www/html/application/storage/app/purifier/HTML
 RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 RUN a2enmod rewrite
-
+RUN docker-php-ext-install mysqli

@@ -1,6 +1,7 @@
 FROM php:8.0-apache
 USER root
 RUN docker-php-ext-install -j "$(nproc)" opcache
+RUN docker-php-ext-install - j "$(nproc)" pdo pdo_mysql
 RUN set -ex; \
     { \
     echo "; Cloud Run enforces memory & timeouts"; \
